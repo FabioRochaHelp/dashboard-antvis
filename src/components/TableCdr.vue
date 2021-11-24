@@ -7,8 +7,17 @@
       :pagination="initialPagination"
       dense
       row-key="name"
-
-    />
+    >
+      <template v-slot:body-cell-actions="props">
+        <q-td :props="props" class="q-gutter-x-md">
+          <q-btn
+          icon="download"
+          color="green"
+          dense
+          />
+        </q-td>
+      </template>
+    </q-table>
   </div>
 </template>
 
@@ -88,6 +97,11 @@ export default ({
           field: 'disposition',
           align: 'left',
           sortable: true
+        },
+        {
+          name: 'actions',
+          field: 'actions',
+          align: 'right'
         }
       ],
       calls: []
