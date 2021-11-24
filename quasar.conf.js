@@ -79,7 +79,7 @@ module.exports = function (/* ctx */) {
 
     // Full list of options: https://quasar.dev/quasar-cli/quasar-conf-js#Property%3A-devServer
     devServer: {
-      https: false,
+      https: true,
       port: 8080,
       open: true // opens browser window automatically
     },
@@ -121,9 +121,9 @@ module.exports = function (/* ctx */) {
       workboxPluginMode: 'GenerateSW', // 'GenerateSW' or 'InjectManifest'
       workboxOptions: {}, // only for GenerateSW
       manifest: {
-        name: 'Quasar F2 Charts',
-        short_name: 'Quasar F2 Charts',
-        description: 'A Quasar Framework app',
+        name: 'Efix PHOENIX',
+        short_name: 'Efix PHOENIX',
+        description: 'Efix PHOENIX - Dashaboard PABX',
         display: 'standalone',
         orientation: 'portrait',
         background_color: '#ffffff',
