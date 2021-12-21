@@ -52,6 +52,14 @@
             <q-item-label>Dashboard</q-item-label>
           </q-item-section>
         </q-item>
+        <q-item clickable to="/monitor" exact active-class="bg-purple-1">
+          <q-item-section avatar>
+            <q-icon name="fas fa-desktop"/>
+          </q-item-section>
+          <q-item-section>
+            <q-item-label>Monitor</q-item-label>
+          </q-item-section>
+        </q-item>
         <q-item clickable to="/tablecdr" exact active-class="bg-purple-1">
           <q-item-section avatar>
             <q-icon name="fas fa-print" />

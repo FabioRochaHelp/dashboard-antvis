@@ -113,7 +113,7 @@ export default ({
   methods: {
     getCalls () {
       api.get(
-        '?service=CallsReport&username=admin&password=2018@efix&start_date=2021-12-01&start_hour=00:00&end_date=2021-12-01&end_hour=23:59&status_answered=true&status_busy=true&time_call_init=10',
+        '?service=CallsReport&username=admin&password=2018@efix&start_date=2021-09-01&start_hour=00:00&end_date=2021-09-30&end_hour=23:59&status_answered=true&status_busy=true&time_call_init=10',
         {
           auth: {
             username: 'admin',
