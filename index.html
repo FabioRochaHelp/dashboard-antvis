@@ -97,12 +97,12 @@
 
                 mounted() {
                     setTimeout(function() {
-                        fetch("http://192.168.18.241:3000/stats?queue=suporte");
+                        fetch("http://localhost:3000/stats?queue=Entrada");
                     }, 1000);
 
-                    let socket = io("http://192.168.18.241:3000");
+                    let socket = io("http://localhost:3000");
 
-                    socket.on("suporte", async (event) => {
+                    socket.on("Entrada", async (event) => {
 
                         console.log(JSON.stringify(event));
 
