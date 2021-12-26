@@ -27,7 +27,7 @@
 
          <div class="row justify-center q-gutter-md">
             <q-card v-for="agent in agents" v-bind:key="agent" class="my-card col-md-3">
-              <q-card-section class="bg-primary text-white">
+              <q-card-section v-bind:class=stilo>
                 <div class="text-h6">{{agent.name}}</div>
                 <div class="text-subtitle2">{{agent.name}}</div>
               </q-card-section>
@@ -85,76 +85,6 @@
     </q-page-container>
   </q-layout>
 
-  <!-- <div>
-    <div class="col-4">
-      <div class="col-12">
-        <h1><strong>Fila: </strong>{{title}}</h1>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-3 card card-default">
-        <div class="card-body text-center ">
-          {{ onHoldCalls.length }}
-          <br />
-          Ch. em espera
-        </div>
-      </div>
-      <div class="col-3 card card-default">
-        <div class="card-body text-center">
-          {{ answered }}
-          <br />
-          Atendidas
-        </div>
-      </div>
-      <div class="col-3 card card-default">
-        <div class="card-body text-center">
-          {{ abandon }}
-          <br />
-          Abandonadas
-        </div>
-      </div>
-      <div class="col-3 card card-default">
-        <div class="card-body text-center">
-          {{ (parseInt(answered)+parseInt(abandon)) }}
-          <br />
-          Total
-        </div>
-      </div>
-    </div>
-
-    <div class="row">
-      <div class="col-12">
-        <h3>Agentes:</h3>
-        <table class="table table-hover table-bordered">
-          <tr>
-            <th>Agente:</th>
-            <th>Ramal:</th>
-            <th>Pausa:</th>
-            <th>Status:</th>
-          </tr>
-          <tr v-for="agent in agents" v-bind:key="agent">
-            <td>{{agent.name}}</td>
-            <td>{{agent.location}}</td>
-            <td>{{agent.paused}}</td>
-            <td>{{agent.status}}</td>
-            </tr>
-        </table>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-12">
-        <h3>Ch. em espera:</h3>
-        <table class="table table-hover table-bordered">
-          <tr>
-            <th>Bina:</th>
-          </tr>
-          <tr v-for="call in onHoldCalls" v-bind:key="call">
-              <td>{{ call.clid }}</td>
-          </tr>
-        </table>
-      </div>
-    </div>
-  </div> -->
 </template>
 
 <script>
@@ -166,6 +96,7 @@ export default {
   data () {
     return {
       title: "",
+      stilo : "bg-primary text-white",
       answered: 0,
       abandon: 0,
       agents: [],
@@ -213,6 +144,15 @@ export default {
             agent.paused = event.paused;
             agent.calleridname = event.calleridname;
             agent.status = event.status;
+            if(agent.status === "6"){
+              this.stilo = "bg-red text-white";
+            }
+
+            if(agent.status === "1"){
+              this.stilo = "bg-primary text-white";
+            }
+
+            
             tmpAgents.push(agent);
         });
 
@@ -230,6 +170,7 @@ export default {
             agent.paused = event.paused;
             agent.calleridname = event.calleridname;
             agent.status = event.status;
+            this.stilo = "bg-green text-white";
             tmpAgents.push(agent);
         });
 
