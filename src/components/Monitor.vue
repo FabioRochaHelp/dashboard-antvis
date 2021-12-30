@@ -118,7 +118,25 @@ export default {
       }
 
       if (event.event == 'QueueMember') {
-        this.agents.push({ name: event.name, location: event.location, status: event.status, paused: event.paused })
+          if(event.status === "6"){
+            this.stilo = "bg-red text-white";
+          }
+
+          if(event.status === "1"){
+            this.stilo = "bg-primary text-white";
+          }
+
+          if(event.status === "2"){
+            this.stilo = "bg-green text-white";
+          }
+
+          this.agents.push({ 
+          name: event.name, 
+          location: event.location, 
+          calleridname : event.calleridname, 
+          status: event.status, 
+          
+          paused: event.paused })
       }
 
       if (event.event == 'QueueCallerJoin') {
@@ -151,6 +169,8 @@ export default {
             if(agent.status === "1"){
               this.stilo = "bg-primary text-white";
             }
+
+          
 
             
             tmpAgents.push(agent);
